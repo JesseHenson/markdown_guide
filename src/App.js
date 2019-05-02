@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactMarkdown from 'react-markdown';
-import './App.css';
+import React, { Component } from "react";
+import ReactMarkdown from "react-markdown";
+import "./App.css";
 
 const initialSource = `
 # header
@@ -16,32 +16,39 @@ const initialSource = `
 ![alt text](https://images.unsplash.com/photo-1548273515-edba62b2b398?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80 "dark wilderness")
 
 __bold Text__
-`
+`;
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       preview: initialSource
-    }
-    this.textChangeHanlder = this.textChangeHanlder.bind(this)
+    };
+    this.textChangeHanlder = this.textChangeHanlder.bind(this);
   }
 
-  textChangeHanlder = (event) => {
-    this.setState({preview: event.target.value})
-  }
+  textChangeHanlder = event => {
+    this.setState({ preview: event.target.value });
+  };
   render() {
     return (
       <div className="bg-primary flex flex-row items-center vh-100">
-        <textarea 
-          className="bg-primary-dark white mh2 h-75 w-50 bn resize-none no-outline" 
-          placeholder={initialSource} 
-          onChange={this.textChangeHanlder.bind(this)} 
-          name="" 
-          id="editor" >
-          </textarea>
-        <div className="flex flex-column items-start h-75 pa3 justify-around bg-primary-dark white mh2 w-50 overflow-auto" id="preview">
-          <ReactMarkdown linkTarget="blank" source={this.state.preview}/>
+        <textarea
+          className="bg-primary-dark white mh2 h-75 w-50 bn resize-none no-outline"
+          placeholder={initialSource}
+          onChange={this.textChangeHanlder.bind(this)}
+          name=""
+          id="editor"
+        />
+        <div
+          className="flex flex-column items-start h-75 pa3 justify-around bg-primary-dark white mh2 w-50 overflow-auto"
+          id="preview"
+        >
+          <ReactMarkdown
+            className="w-100"
+            linkTarget="blank"
+            source={this.state.preview}
+          />
         </div>
       </div>
     );
