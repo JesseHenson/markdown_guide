@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ReactMarkdown from 'react-markdown';
 import './App.css';
 
+const initialSource = `
+# header
+
+## subHeader
+[GitHub](http://github.com)
+\`inline code\`
+\`\`\`js 
+  let this = 'this'
+\`\`\`
++ list item
+> a blockquote Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga doloribus nesciunt commodi, qui dolor dolores exercitationem nam, placeat voluptas nihil, modi sunt quaerat odit? Voluptatibus ipsam quis quidem corrupti esse.
+![alt text](https://images.unsplash.com/photo-1548273515-edba62b2b398?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80 "dark wilderness")
+
+__bold Text__
+`
+
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      preview: initialSource
+    }
+    this.textChangeHanlder = this.textChangeHanlder.bind(this)
+  }
+
+  textChangeHanlder = (event) => {
+    this.setState({preview: event.target.value})
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="bg-primary flex flex-row h-100">
+        <textarea className="bg-primary-dark white mh2 vh-100 w-50 bn resize-none no-outline" placeholder={initialSource} onChange={this.textChangeHanlder.bind(this)} name="" id="editor" ></textarea>
+        <div className="flex flex-column items-start pa3 justify-around bg-primary-dark white mh2 h-100 w-50" id="preview">
+          <ReactMarkdown linkTarget="blank" source={this.state.preview}/>
+        </div>
       </div>
     );
   }
