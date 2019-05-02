@@ -17,3 +17,7 @@
 .no-outline{
   outline: none;
 }
+
+.overflow-auto {
+  overflow: auto
+}

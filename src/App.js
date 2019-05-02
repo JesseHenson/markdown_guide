@@ -32,9 +32,15 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="bg-primary flex flex-row h-100">
-        <textarea className="bg-primary-dark white mh2 vh-100 w-50 bn resize-none no-outline" placeholder={initialSource} onChange={this.textChangeHanlder.bind(this)} name="" id="editor" ></textarea>
-        <div className="flex flex-column items-start pa3 justify-around bg-primary-dark white mh2 h-100 w-50" id="preview">
+      <div className="bg-primary flex flex-row items-center vh-100">
+        <textarea 
+          className="bg-primary-dark white mh2 h-75 w-50 bn resize-none no-outline" 
+          placeholder={initialSource} 
+          onChange={this.textChangeHanlder.bind(this)} 
+          name="" 
+          id="editor" >
+          </textarea>
+        <div className="flex flex-column items-start h-75 pa3 justify-around bg-primary-dark white mh2 w-50 overflow-auto" id="preview">
           <ReactMarkdown linkTarget="blank" source={this.state.preview}/>
         </div>
       </div>
