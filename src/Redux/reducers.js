@@ -1,19 +1,29 @@
-const initialState = `
-# header
+import {TEXT_AREA_CHANGED, NOTHING_LEFT_TEXTAREA, MARKUP_STARTER, OPEN_REF} from './constants'
+import { combineReducers } from '../../../../../../AppData/Local/Microsoft/TypeScript/3.4.3/node_modules/redux';
 
-## subHeader
-[GitHub](http://github.com)
-\`inline code\`
-\`\`\`js 
-  let this = 'this'
-\`\`\`
-+ list item
-> a blockquote Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga doloribus nesciunt commodi, qui dolor dolores exercitationem nam, placeat voluptas nihil, modi sunt quaerat odit? Voluptatibus ipsam quis quidem corrupti esse.
-![alt text](https://images.unsplash.com/photo-1548273515-edba62b2b398?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80 "dark wilderness")
-
-__bold Text__
-`
-
-export const mainReducer = (state = initialState, action) => {
-
+const initialState = {
+  markupTextArea: MARKUP_STARTER,
+  isRefOpen: false
 }
+
+export const headerReducer = (state = initialState.isRefOpen, action) => {
+  switch (action.type) {
+    case OPEN_REF: 
+      return !state
+    default: 
+      return state
+  }
+}
+
+export const previewerReducer = (state = initialState.markupTextArea, action) => {
+  switch (action.type) {
+    case TEXT_AREA_CHANGED:
+      return {...state, markupTextArea: action.payload} 
+    case NOTHING_LEFT_TEXTAREA: 
+      return {...state, markupTextArea: initialState.markupTextArea};
+    default: 
+      return state;
+  }
+}
+
+export const combinedReducer = combineReducers({previewer: previewerReducer, header: headerReducer})
