@@ -1,13 +1,18 @@
+:root {
+  --primary: #607d8b;
+  --dark-primary: #34515e;
+}
+
 .App {
   text-align: center;
 }
 
 .bg-primary{
-  background-color: #607d8b
+  background-color: var(--primary)
 }
 
 .bg-primary-dark{
-  background-color: #34515e
+  background-color: var(--dark-primary)
 }
 
 .resize-none{
@@ -20,4 +25,25 @@
 
 .overflow-auto {
   overflow: auto
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 50px
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

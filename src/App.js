@@ -34,14 +34,14 @@ class App extends Component {
     return (
       <div className="bg-primary flex flex-row items-center vh-100">
         <textarea
-          className="bg-primary-dark white mh2 h-75 w-50 bn resize-none no-outline"
+          className="br2 bg-primary-dark white mh2 h-75 w-50 bn resize-none no-outline"
           placeholder={initialSource}
           onChange={this.textChangeHanlder.bind(this)}
           name=""
           id="editor"
         />
         <div
-          className="flex flex-column items-start h-75 pa3 justify-around bg-primary-dark white mh2 w-50 overflow-auto"
+          className="previewer br2 flex flex-column items-start h-75 pa3 justify-around bg-primary-dark white mh2 w-50 overflow-auto"
           id="preview"
         >
           <ReactMarkdown

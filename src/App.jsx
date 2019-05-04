@@ -42,9 +42,11 @@ class App extends Component {
                     .textChangeHanlder
                     .bind(this)}
                     name=""
-                    id="editor"></textarea>
+                    id="editor">
+                </textarea>
                 <div
-                    className="flex flex-column items-start h-75 pa3 justify-around bg-primary-dark white mh2 w-50 overflow-auto"
+                    className="previewer flex flex-column items-start h-75 pa3 justify-around bg-primary-dark white mh2 w-50 overflow-auto"
                     id="preview">
-                    <ReactMarkdown linkTarget="blank" source={this.state.preview}/></div>
+                    <ReactMarkdown linkTarget="blank" source={this.state.preview}/>
+                </div>
             </div>
