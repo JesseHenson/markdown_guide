@@ -3,17 +3,19 @@ import './App.css';
 import Previewer from './Components/Previewer';
 import Header from './Components/Header';
 import Slider from './Components/Slider';
+import Footer from './Components/Footer';
 
 
 
 const App = ({markdown,TextAreaChange}) => {
 
     return (
-        <Fragment>
+        <div className="mb-10 min-h-100">
             <Header/>
             <Slider/>
             <Previewer/>
-        </Fragment>
+            <Footer/>
+        </div>
     )
 }
 

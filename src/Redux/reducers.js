@@ -1,5 +1,5 @@
 import {TEXT_AREA_CHANGED, NOTHING_LEFT_TEXTAREA, MARKUP_STARTER, OPEN_REF} from './constants'
-import { combineReducers } from '../../../../../../AppData/Local/Microsoft/TypeScript/3.4.3/node_modules/redux';
+import { combineReducers } from 'redux';
 
 const initialState = {
   markupTextArea: MARKUP_STARTER,

@@ -59,3 +59,11 @@
 .slider {
   transition: 500ms
 }
+
+.vh-10{
+  height: 10vh;
+}
+
+.mb-10{
+  margin-bottom: -10vh
+}
