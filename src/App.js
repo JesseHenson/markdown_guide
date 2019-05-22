@@ -3,19 +3,20 @@ import './App.css';
 import Previewer from './Components/Previewer';
 import Header from './Components/Header';
 import Slider from './Components/Slider';
-import Footer from './Components/Footer';
+import styled from 'styled-components'
 
-
+const StyledApp = styled.div`
+    height: 100vh;
+`;
 
 const App = ({markdown,TextAreaChange}) => {
 
     return (
-        <div className="mb-10 min-h-100">
+        <StyledApp>
             <Header/>
             <Slider/>
             <Previewer/>
-            <Footer/>
-        </div>
+        </StyledApp>
     )
 }
 
