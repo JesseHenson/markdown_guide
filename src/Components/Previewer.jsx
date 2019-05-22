@@ -11,6 +11,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return { 
         TextAreaChange: (value) => {
+            console.log(value);
             value !== "" ?
             dispatch(changeTextArea(value)) : 
             dispatch(nothingLeftTextArea())

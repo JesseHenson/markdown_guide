@@ -18,9 +18,9 @@ export const headerReducer = (state = initialState.isRefOpen, action) => {
 export const previewerReducer = (state = initialState.markupTextArea, action) => {
   switch (action.type) {
     case TEXT_AREA_CHANGED:
-      return {...state, markupTextArea: action.payload} 
+      return action.payload
     case NOTHING_LEFT_TEXTAREA: 
-      return {...state, markupTextArea: initialState.markupTextArea};
+      return initialState.markupTextArea
     default: 
       return state;
   }
